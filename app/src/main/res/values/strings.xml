@@ -1,3 +1,7 @@
 <resources>
+    <string name="enter_user_name">Enter User Name</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">Login</string>
+    <string name="welcome">Welcome!!!</string>
     <string name="app_name">AndroidBootcamp</string>
 </resources>

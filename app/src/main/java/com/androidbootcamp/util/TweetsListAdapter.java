@@ -7,20 +7,20 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.androidbootcamp.model.Tweet;
 
 import com.androidbootcamp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import twitter4j.Status;
 
 public class TweetsListAdapter extends BaseAdapter {
-    private List<Status> statuses;
+    private List<Tweet> statuses;
     private Context context;
     private LayoutInflater inflater;
 
-    public TweetsListAdapter(List<Status> statuses, Context context) {
+    public TweetsListAdapter(List<Tweet> statuses, Context context) {
         this.statuses = statuses;
         this.context = context;
         inflater = LayoutInflater.from(context);
@@ -48,7 +48,7 @@ public class TweetsListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Status status = (Status) getItem(position);
+        Tweet status = (Tweet) getItem(position);
         if (convertView == null) {
             convertView = createView();
         }
@@ -56,10 +56,10 @@ public class TweetsListAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private void updateViewHolder(View convertView, Status status) {
+    private void updateViewHolder(View convertView, Tweet status) {
         ViewHolder viewHolder = (ViewHolder) convertView.getTag();
         Picasso.with(context).load(DataProvider.getIconUrl()).into(viewHolder.tweetIcon);
-        viewHolder.tweetMessage.setText(status.getText());
+        viewHolder.tweetMessage.setText(status.getMessage());
     }
 
     private View createView() {
